@@ -1,0 +1,76 @@
+﻿@model LeaveManagement.ViewModels.EmployeeInfoViewModel
+@{
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+
+
+
+<body>
+    <div class="container-fluid col-md-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Employee Information</h1>
+                <h2>@Model.EmployeeID</h2>
+                <form novalidate="novalidate" action="/Employee/EditInfo" method="post" class="needs-validation">
+                    @Html.AntiForgeryToken()
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="ProjectsDone">Projects:</label>
+                            <textarea class="form-control" id="ProjectsDone" placeholder="Your projects" name="ProjectsDone" autofocus="autofocus" rows="3">@Model.ProjectsDone</textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Bio">Your Bio:</label>
+                            <textarea class="form-control" id="Bio" placeholder="Bio" name="Bio" rows="2">@Model.Bio</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Hobbies">Your Hobbies:</label>
+                            <textarea class="form-control" id="Hobbies" placeholder="Address" name="Hobbies" rows="4">@Model.Hobbies</textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label for="Contact">Contact:</label>
+                            <input type="number" class="form-control" id="Contact" placeholder="Phone Number" value="@Model.Contact" name="Contact" required="required" />
+                            <div class="valid-feedback">
+                            </div>
+                            <div class="invalid-feedback">
+                                Invalid contact
+                            </div>
+                            <small class="email-exist text-danger"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Address">Your Address:</label>
+                            <textarea class="form-control" id="Address" placeholder="Address" name="Address" rows="2">@Model.Address</textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
